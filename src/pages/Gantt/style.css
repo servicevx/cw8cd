@@ -1,0 +1,6 @@
+#gantt {
+    height: 2200px;
+}
+.dx-gantt .dx-gantt-tm.current-time {
+    border-left: 1px solid red;
+}

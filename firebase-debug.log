@@ -1,0 +1,17 @@
+[debug] [2020-11-09T07:14:09.858Z] ----------------------------------------------------------------------
+[debug] [2020-11-09T07:14:09.860Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\viktors.aleksandrovs\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-11-09T07:14:09.860Z] CLI Version:   8.14.1
+[debug] [2020-11-09T07:14:09.860Z] Platform:      win32
+[debug] [2020-11-09T07:14:09.860Z] Node Version:  v14.15.0
+[debug] [2020-11-09T07:14:09.861Z] Time:          Mon Nov 09 2020 09:14:09 GMT+0200 (Austrumeiropas ziemas laiks)
+[debug] [2020-11-09T07:14:09.861Z] ----------------------------------------------------------------------
+[debug] [2020-11-09T07:14:09.862Z] 
+[debug] [2020-11-09T07:14:09.868Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-11-09T07:14:09.869Z] > authorizing via signed-in user
+[debug] [2020-11-09T07:14:09.869Z] [iam] checking project modulsordering for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-11-09T07:14:09.872Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-11-09T07:14:09.872Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-11-09T07:14:10.260Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 09 Nov 2020 07:14:10 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-11-09T07:14:10.272Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/modulsordering:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

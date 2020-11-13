@@ -16,12 +16,14 @@ export const fileItems = [{
     'items': [{
       'name': '24466 Ventspils iela 53',
       'isDirectory': false,
-      'size': 1024
+      'size': 1024,
+      id: 1
     },
     {
       'name': '25342 RIMI Liepāja',
       'isDirectory': false,
-      'size': 1024
+      'size': 1024,
+      id: 2
     }]
   }],
 }];

@@ -16,13 +16,11 @@ import DataGrid, {
 import query from 'devextreme/data/query';
 //import CheckBox from 'devextreme-react/check-box';
 //import SelectBox from 'devextreme-react/select-box';
-import { positions } from '../data.js';
-import service from '../data.js';
+// import service from '../Estimates/data.js';
 
-class App extends React.Component {
+class BatchEdit extends React.Component {
   constructor(props) {
     super(props);
-    this.positions = service.getOrders();
     this.state = {
       selectTextOnEditStart: true,
       startEditAction: 'click',
@@ -60,7 +58,7 @@ class App extends React.Component {
 
 
   getGroupCount(groupField) {
-    return query(this.positions)
+    return query(this.props.positions.positions)
       .groupBy(groupField)
       .toArray().length;
   }
@@ -133,7 +131,7 @@ class App extends React.Component {
     return (
       <div id="data-grid-demo">
         <DataGrid
-          dataSource={positions}
+          dataSource={this.props.positions.positions}
           allowColumnRepositionsing={true}
           allowColumnResizing={true}
           columnAutoWidth={true}
@@ -250,7 +248,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
-
-
-
+export default BatchEdit;

@@ -37,10 +37,9 @@ const App = () => {
   const isLogin = checkIsLogin();
 
   const onLogin = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     localStorage.setItem('userName', userName);
     localStorage.setItem('password', password);
-    setUsername('');
   }
 
   return (
@@ -50,14 +49,13 @@ const App = () => {
                   <header>
                   <nav>{title}</nav>
                 </header>
-                <Navbar />
+                <Navbar/>
                 </>
         )}
 
-
+          {!isLogin && <Redirect to="/login"/>}
         <Switch>
           <Route exact path="/" render={() => {
-            if (!isLogin) return <Redirect to="/login"/>;
             return <Projekti onFileClick={(id, title) => {setActivePosition(id); setTitle(title)}} />}} />
           <Route exact path="/login" render={() => {
             if (isLogin) return <Redirect to="/"/>;

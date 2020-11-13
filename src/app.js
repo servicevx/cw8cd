@@ -34,7 +34,13 @@ const App = () => {
     return userName && password;
   }
 
+  let isUserProjvad = false;
+
   const isLogin = checkIsLogin();
+
+  const user = localStorage.getItem('userName');
+
+  if ( user === 'Dolgovskis') isUserProjvad = true;
 
   const onLogin = (e) => {
     // e.preventDefault();
@@ -42,14 +48,15 @@ const App = () => {
     localStorage.setItem('password', password);
   }
 
+
   return (
     <Router>
       <div>
         {isLogin && (<>
                   <header>
-                  <nav>{title}</nav>
+                  <nav className="navigation"><div>{title}</div><div>{user}</div></nav>
                 </header>
-                <Navbar/>
+                <Navbar isUserProjvad={isUserProjvad} />
                 </>
         )}
 
@@ -74,7 +81,7 @@ const App = () => {
           <Route exact path="/Edit/BatchEdit" render={() => <BatchEdit positions={positionsToBatchEdit} />} />
           <Route exact path="/Assign/Assign" component={Assign} />
           <Route exact path="/Upload/upload" component={UploadPage} />
-          <Route exact path="/Gantt/Time" component={TimeGantt} />
+          {/* <Route exact path="/Gantt/Time" component={TimeGantt} /> */}
           <Route exact path="/Systems/Tabs" component={Tabs} />
           <Route exact path="/Reports/Doughnut" component={Doughnut} />
           <Route exact path="/Export/toExcel" component={toExcel} />

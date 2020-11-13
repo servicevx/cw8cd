@@ -131,3 +131,9 @@
   align-items: center;
   height: 100vh;
 }
+
+nav.navigation  {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}

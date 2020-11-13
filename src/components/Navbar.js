@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 
-export const Navbar = () => (
+export const Navbar = props => (
   <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
     <div className="navbar-brand">
     
@@ -26,21 +26,22 @@ export const Navbar = () => (
           Tāme
         </NavLink>
       </li>
-      <li className="nav-item">
+      {props.isUserProjvad && <li className="nav-item">
         <NavLink
           className="nav-link"
           to="/Assign/Assign"
         >
           Pieškirt
         </NavLink>
-      </li>
+</li>}
+
       <li className="nav-item">
-        <NavLink
+        <a
           className="nav-link"
-          to="/Gantt/Time"
+          href="https://google.com"
         >
           Laika grafiks
-        </NavLink>
+        </a>
       </li>
    
       <li className="nav-item">

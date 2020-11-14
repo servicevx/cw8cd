@@ -20,6 +20,7 @@ import Doughnut from "./pages/Reports/Doughnut";
 import Kanban from "./pages/Komponentes/Kanban";
 import TotalApp from "./pages/Total/TotalApp";
 import { getPositions, updatePosition } from "./api/firebase";
+import { onLogin, checkIsLogin, getUser } from './helpers/login';
 
 const App = () => {
   const [positions, setPositions] = useState([]);
@@ -45,31 +46,20 @@ const App = () => {
       });
       if (updatedPosition) {
         updatePosition({ position, positionIdx: i, estimate: title });
-        return updatePosition;
+        return updatedPosition;
       }
       return position;
     });
-  };
-
-  const checkIsLogin = () => {
-    const userName = localStorage.getItem("userName");
-    const password = localStorage.getItem("password");
-    return userName && password;
+    setPositions(newPositions);
   };
 
   let isUserProjvad = false;
 
   const isLogin = checkIsLogin();
 
-  const user = localStorage.getItem("userName");
+  const user = getUser();
 
   if (user === "Dolgovskis") isUserProjvad = true;
-
-  const onLogin = (e) => {
-    // e.preventDefault();
-    localStorage.setItem("userName", userName);
-    localStorage.setItem("password", password);
-  };
 
   return (
     <Router>
@@ -102,7 +92,7 @@ const App = () => {
               if (isLogin) return <Redirect to="/" />;
               return (
                 <div className="form-wrapper">
-                  <form onSubmit={onLogin}>
+                  <form onSubmit={() => onLogin(userName, password) }>
                     <input
                       placeholder="name"
                       onChange={(e) => setUsername(e.currentTarget.value)}

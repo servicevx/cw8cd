@@ -37,7 +37,7 @@ class BatchEdit extends React.Component {
     this.onToolbarPreparing = this.onToolbarPreparing.bind(this);
     this.toolbarItemRender = this.toolbarItemRender.bind(this);
     this.dataGrid = null;
-    //
+    this.euros = { style: 'currency', currency: 'EUR', useGrouping: true, minimumSignificantDigits: 3 };
 
   }
   onSelectTextOnEditStartChanged(args) {
@@ -55,13 +55,6 @@ class BatchEdit extends React.Component {
     const savedPositions = saveEvent.changes.map((data) => data.data);
     this.props.onPositionsUpdate(savedPositions);
   }
-
-  euros = { style: 'currency', currency: 'EUR', useGrouping: true, minimumSignificantDigits: 3 };
-  //customizeDate(total) {
-  // return `First: ${ Globalize.formatDate(total.value, { date: 'medium' })}`;
-  //}
-
-
 
   getGroupCount(groupField) {
     return query(this.props.positions)

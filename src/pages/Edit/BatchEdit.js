@@ -28,6 +28,7 @@ class BatchEdit extends React.Component {
     };
     this.onSelectTextOnEditStartChanged = this.onSelectTextOnEditStartChanged.bind(this);
     this.onStartEditActionChanged = this.onStartEditActionChanged.bind(this);
+    this.onPositionSave = this.onPositionSave.bind(this);
     //
     this.state = {
       expanded: true,
@@ -50,6 +51,11 @@ class BatchEdit extends React.Component {
     });
   }
 
+  onPositionSave(saveEvent) {
+    const savedPositions = saveEvent.changes.map((data) => data.data);
+    this.props.onPositionsUpdate(savedPositions);
+  }
+
   euros = { style: 'currency', currency: 'EUR', useGrouping: true, minimumSignificantDigits: 3 };
   //customizeDate(total) {
   // return `First: ${ Globalize.formatDate(total.value, { date: 'medium' })}`;
@@ -58,7 +64,7 @@ class BatchEdit extends React.Component {
 
 
   getGroupCount(groupField) {
-    return query(this.props.positions.positions)
+    return query(this.props.positions)
       .groupBy(groupField)
       .toArray().length;
   }
@@ -126,12 +132,11 @@ class BatchEdit extends React.Component {
     this.dataGrid.instance.refresh();
   }
 
-
   render() {
     return (
       <div id="data-grid-demo">
         <DataGrid
-          dataSource={this.props.positions.positions}
+          dataSource={this.props.positions}
           allowColumnRepositionsing={true}
           allowColumnResizing={true}
           columnAutoWidth={true}
@@ -141,6 +146,7 @@ class BatchEdit extends React.Component {
           headerFilter={{ visible: true }}
           filterPanel={{ visible: true }}
           filterRow={{ visible: false }}
+          onSaved={this.onPositionSave}
         >
           <GroupPanel visible={true} />
           <SearchPanel visible={true} highlightCaseSensitive={true} />

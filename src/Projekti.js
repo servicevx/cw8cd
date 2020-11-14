@@ -42,10 +42,8 @@ class Projekti extends React.Component {
   }
 
   onItemClick(options) {
-    let id = 1;
-    const title = options.fileSystemItem.name;
-    if (title === '25342 RIMI Liepāja') id = 2;
-    this.props.onFileClick(id, title);
+    const { name } = options.fileSystemItem;
+    this.props.onFileClick(name);
   }
 }
 

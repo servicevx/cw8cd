@@ -1,21 +1,30 @@
 import React from 'react';
 
 import FileManager, { Permissions, Item, ContextMenu } from 'devextreme-react/file-manager';
-
-import { fileItems } from './data.js';
+import { getData } from './api/firebase';
 
 class Projekti extends React.Component {
 
   constructor(props) {
     super(props);
 
+    this.state = {
+      files: [],
+    };
+
     this.onItemClick = this.onItemClick.bind(this);
     this.contextItemRef = React.createRef();
   }
 
+  async componentDidMount() {
+    const response = await getData();
+    const files = await response.json();
+    this.setState(prev => ({ ...prev, files }));
+  }
+
   render() {
     return (
-      <FileManager fileSystemProvider={fileItems} onContextMenuItemClick={this.onItemClick}>
+      <FileManager fileSystemProvider={this.state.files} onContextMenuItemClick={this.onItemClick}>
         <Permissions
           create={true}
           copy={true}

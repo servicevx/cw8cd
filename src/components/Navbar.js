@@ -15,7 +15,7 @@ export const Navbar = props => (
           to="/"
           exact
         >
-          Projekti
+          Filemanager
         </NavLink>
       </li>
       <li className="nav-item">
@@ -23,7 +23,7 @@ export const Navbar = props => (
           className="nav-link"
           to="/Edit/BatchEdit"
         >
-          Tāme
+          Estimate
         </NavLink>
       </li>
       {props.isUserProjvad && <li className="nav-item">
@@ -31,16 +31,16 @@ export const Navbar = props => (
           className="nav-link"
           to="/Assign/Assign"
         >
-          Pieškirt
+          Assign
         </NavLink>
 </li>}
 
       <li className="nav-item">
         <a
           className="nav-link"
-          href="https://google.com"
+          href="https://modulsprojects.web.app/"
         >
-          Laika grafiks
+          Gantt
         </a>
       </li>
    
@@ -57,7 +57,7 @@ export const Navbar = props => (
           className="nav-link"
           to="/Export/toExcel"
         >
-          Eksportēt uz Excel
+          Eksports
         </NavLink>
       </li>
  
@@ -66,7 +66,7 @@ export const Navbar = props => (
           className="nav-link"
           to="/Reports/Doughnut"
         >
-          Diagrammas
+          Reports
         </NavLink>
       </li>
       <li className="nav-item">
@@ -74,7 +74,7 @@ export const Navbar = props => (
           className="nav-link"
           to="/Total/TotalApp"
         >
-          Kopsavilkums
+          Total
         </NavLink>
       </li>
     </ul>
